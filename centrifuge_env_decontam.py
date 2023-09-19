@@ -56,7 +56,7 @@ def create_env_list(env_sample, tax_level):
 def decontaminate(samples_path, env_sample_path, tax_level):
     with open(env_sample_path, "r") as env_sample_file:
         env_list = create_env_list(env_sample_file, tax_level)
-    output_file_path = "{0}_{1}_env_decontam_centrifugeReport.txt".format(os.path.splitext(samples_path)[0], tax_level)
+    output_file_path = "{0}/{1}_{2}_env_decontam_centrifugeReport.txt".format(os.path.dirname(samples_path), os.path.basename(samples_path).split("_")[0], tax_level)
     with open(samples_path, "r") as f_in, open(output_file_path, "w") as decontam_out:
         for line in f_in:
             if not line.startswith("name"):
