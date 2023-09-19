@@ -17,7 +17,7 @@ def read_genus_or_below_list(env_sample):
         otu = line.split("\t")[0]
         if tax_rank in target_taxa:
             if tax_rank == "leaf":
-                if len(otu.strip()) > 1:
+                if len(otu.split()) > 1:
                     otu_mod = f"{otu.split()[0]} {otu.split()[1]}"
                     otu_list.add(otu_mod)
                 else:
@@ -34,7 +34,7 @@ def read_species_list(env_sample):
         otu = line.split("\t")[0].strip()
         if tax_rank in target_taxa:
             if tax_rank == "leaf":
-                if len(otu.strip()) > 1:
+                if len(otu.split()) > 1:
                     otu_mod = f"{otu.split()[0]} {otu.split()[1]}"
                     otu_list.add(otu_mod)
                 else:
