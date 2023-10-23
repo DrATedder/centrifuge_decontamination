@@ -5,7 +5,7 @@ import glob
 def read_otu_list(env_sample):
     otu_list = set()
     for line in env_sample:
-        otu = line.split("\t")[0]
+        otu = line.split("\t")[0].strip()
         otu_list.add(otu)
     return otu_list
 
